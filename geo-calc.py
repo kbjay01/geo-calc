@@ -92,7 +92,7 @@ def prostokat():
 				exit()
 			
 			pro_pole = pro_a * pro_b
-			print('Pole prostokatu wynosi: ' + str(pro_pole)
+			print('Pole prostokatu wynosi: ' + str(pro_pole))
 		
 		if wyborProstokat == '2':
 			# Obwod prostokatu
@@ -107,7 +107,7 @@ def prostokat():
 				print('[!] Blad. Dlugosc bokow "a" i "b" musi byc liczba')
 				exit()
 			pro_obwod = 2 * pro_a + 2 * pro_b
-			print('Obwod tego prostokatu wynosi: ' + str(pro_obwod)
+			print('Obwod tego prostokatu wynosi: ' + str(pro_obwod))
 			
 		if wyborProstokat == '3':
 			# Dlugosc przekatnej prostokatu
@@ -123,12 +123,10 @@ def prostokat():
 				exit()
 			pro_liczba_podpierwiastkowa = pro_a ** 2 + pro_b ** 2
 			pro_przekatna = math.sqrt(pro_liczba_podpierwiastkowa)
-			print('Przekatna tego kwadratu wynosi: √ ' + pro_liczba_podpierwiastkowa
-			print('Dokladny wynik: ' + pro_przekatna + '...'
+			print('Przekatna tego kwadratu wynosi: √ ' + str(pro_liczba_podpierwiastkowa))
+			print('Dokladny wynik: ' + str(pro_przekatna) + '...')
 
 if wybor == '1':
 	kwadrat()
 elif wybor == '2':
 	prostokat()
-
-			
