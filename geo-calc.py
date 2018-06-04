@@ -11,6 +11,7 @@ wybor = input('[1-4] Wybieram: ')
 listWyborow = ['1','2','3','4']
 listKwadrat = ['1','2','3']
 listProstokat = ['1','2','3']
+listTrojkat = ['1','2','3']
 
 if wybor not in listWyborow:
   print('[!] Blad. Podano wybor z poza dozwolonego zakresu')
@@ -125,8 +126,69 @@ def prostokat():
 			pro_przekatna = math.sqrt(pro_liczba_podpierwiastkowa)
 			print('Przekatna tego kwadratu wynosi: √ ' + str(pro_liczba_podpierwiastkowa))
 			print('Dokladny wynik: ' + str(pro_przekatna) + '...')
+		
+def trojkat():
+	print('Co chcesz obliczyc?')
+	print('1. Pole')
+	print('2. Obwod')
+	print('3. Dlugosc przeciwprostokatnej [dotyczy Trojkata Prostokatnego]')
+	wyborTrojkat = input('Wybieram[1-3]: ')
+	
+	if wyborTrojkat not in listTrojkat:
+		print('[!] Blad. Podano wybor z poza dozwolonego zakresu')
+	elif wyborTrojkat in listTrojkat:
+		
+		if wyborTrojkat == '1':
+			#Pole
+			tr_a = input('Podaj dlugosc podstawy: ')
+			tr_h = input('Podaj wysokosc trojkata: ')
+			print('')
 
+			try:
+				tr_a = float(tr_a)
+				tr_h = float(tr_h)
+			except ValueError:
+				print('[!] Blad. Dlugosc podstawy i wyskokosc trojkata musi byc liczba')
+				exit()
+			tr_pole = (tr_a * tr_h)/2
+			print('Pole tego trojkata wynosi: ' + str(tr_pole))
+		
+		if wyborTrojkat == '2':
+			#Obwod
+			tr_a = input('Podaj dlugosc boku "a": ')
+			tr_b = input('Podaj dlugosc boku "b": ')
+			tr_c = input('Podaj dlugosc boku "c": ')
+			print('')
+
+			try:
+				tr_a = float(tr_a)
+				tr_b = float(tr_b)
+				tr_c = float(tr_c)
+			except ValueError:
+				print('[!] Blad. Wartosci "a","b" i "c" musza byc liczbami')
+				exit()
+			tr_obwod = tr_a + tr_b + tr_c
+			print('Obwod tego trojkata wynosi: ' + str(tr_obwod))
+			
+		if wyborTrojkat == '3':
+			#Pitagoras przeciwprostokatnej
+			tr_a = input('Podaj dlugosc przyprostokatnej "a": ')
+			tr_b = input('Podaj dlugosc przyprostokatnej "b": ')
+			print('')
+			
+			try:
+				tr_a = float(tr_a)
+				tr_b = float(tr_b)
+			except ValueError:
+				print('[!] Blad. Dlugosci przyprostokatnych musza byc liczbami')
+				exit()
+			
+			tr_c = tr_a ** 2 + tr_b ** 2
+			print('Dlugosc przeciwprostokatnej tego trojkata wynosi: ' + str(tr_c))
+			
 if wybor == '1':
 	kwadrat()
 elif wybor == '2':
 	prostokat()
+elif wybor == '3':
+	trojkat()
