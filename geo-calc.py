@@ -12,11 +12,27 @@ listWyborow = ['1','2','3','4']
 listKwadrat = ['1','2','3']
 listProstokat = ['1','2','3']
 listTrojkat = ['1','2','3']
-
 if wybor not in listWyborow:
   print('[!] Blad. Podano wybor z poza dozwolonego zakresu')
+
+
+def handler(shape,var1,var2,var3):
+	if shape == 'kwadrat' and var2 == False and var3 == False:
+		var2 = 0
+		var3 = 0
+	elif shape = 'prostokat' or 'trojkat' and var3 == False:
+		var3 = 0
+	try:
+		print('')
+		var1 = float(var1)
+		var2 = float(var2)
+		var3 = float(var3)
+	except ValueError:
+		print('[!] Blad. Podawane dlugosci musza byc liczbami')
+		exit()
   
 def kwadrat():
+	figura = 'kwadrat'
 	print('Co chcesz policzyc?')
 	print('1. Pole')
 	print('2. Obwod')
@@ -31,43 +47,27 @@ def kwadrat():
 		if wyborKwadrat == '1':
 			# Pole kwadratu
 			kw_a = input('Podaj dlugosc boku a: ')
-			print('')
-			try:
-				kw_a = float(kw_a)
-			except ValueError:
-				print('[!] Blad. Dlugosc boku "a" musi byc liczba')
-				exit()
-			
-			pole_kwadratu = kw_a**2
+			handler(figura,kw_a,False,False)
+			pole_kwadratu = float(kw_a) ** 2
 			print('Pole kwadratu wynosi: ' + str(pole_kwadratu))
 		
-		if wyborKwadrat == '2':
+		elif wyborKwadrat == '2':
 			# Obwod kwadratu
 			kw_a = input('Podaj dlugosc boku a: ')
-			try:
-				kw_a = float(kw_a)
-			except ValueError:
-				print('[!] Blad. Dlugosc boku "a" musi byc liczba')
-				exit()
-			
-			kw_obwod = kw_a * 4
+			handler(figura,kw_a,False,False)
+			kw_obwod = float(kw_a) * 4
 			print('Obwod kwadratu wynosi: ' + str(kw_obwod))
 		
-		if wyborKwadrat == '3':
+		elif wyborKwadrat == '3':
 			#Dlugosc przekatnej kwadratu
 			kw_a = input('Podaj dlugosc boku a: ')
-			print('')
-			try:
-				kw_a = float(kw_a)
-			except ValueError:
-				print('[!] Blad. Dlugosc boku "a" musi byc liczba')
-				exit()
-				
+			handler(figura,kw_a,False,False)
 			print('Dlugosc przekatnej kwadratu wynosi: ' + str(kw_a) + '√2')
-			przekatna_kwadratu = math.sqrt(2) * kw_a
-			print('Dokladny wynik: ' + str(przekatna_kwadratu) + '...')
+			przekatna_kwadratu = math.sqrt(2) * float(kw_a)
+			print('Dokladny wynik: ' + str(przekatna_kwadratu) + '..')
 			
 def prostokat():
+	figura = 'prostokat'
 	print('Co chcesz policzyc?')
 	print('1. Pole')
 	print('2. Obwod')
@@ -83,15 +83,7 @@ def prostokat():
 			# Pole prostokatu
 			pro_a = input('Podaj dlugosc boku "a": ')
 			pro_b = input('Podaj dlugosc boku "b": ')
-			print('')
-			
-			try:
-				pro_a = float(pro_a)
-				pro_b = float(pro_b)
-			except ValueError:
-				print('[!] Blad. Dlugosc bokow "a" i "b" musi byc liczba')
-				exit()
-			
+			handler(figura,pro_a,pro_b,False)
 			pro_pole = pro_a * pro_b
 			print('Pole prostokatu wynosi: ' + str(pro_pole))
 		
@@ -99,14 +91,7 @@ def prostokat():
 			# Obwod prostokatu
 			pro_a = input('Podaj dlugosc boku "a": ')
 			pro_b = input('Podaj dlugosc boku "b": ')
-			print('')
-			
-			try:
-				pro_a = float(pro_a)
-				pro_b = float(pro_b)
-			except ValueError:
-				print('[!] Blad. Dlugosc bokow "a" i "b" musi byc liczba')
-				exit()
+			handler(figura,pro_a,pro_b,False)
 			pro_obwod = 2 * pro_a + 2 * pro_b
 			print('Obwod tego prostokatu wynosi: ' + str(pro_obwod))
 			
@@ -114,20 +99,14 @@ def prostokat():
 			# Dlugosc przekatnej prostokatu
 			pro_a = input('Podaj dlugosc boku "a": ')
 			pro_b = input('Podaj dlugosc boku "b": ')
-			print('')
-			
-			try:
-				pro_a = float(pro_a)
-				pro_b = float(pro_b)
-			except ValueError:
-				print('[!] Blad. Dlugosc bokow "a" i "b" musi byc liczba')
-				exit()
+			handler(figura,pro_a,pro_b,False)
 			pro_liczba_podpierwiastkowa = pro_a ** 2 + pro_b ** 2
 			pro_przekatna = math.sqrt(pro_liczba_podpierwiastkowa)
 			print('Przekatna tego kwadratu wynosi: √ ' + str(pro_liczba_podpierwiastkowa))
 			print('Dokladny wynik: ' + str(pro_przekatna) + '...')
 		
 def trojkat():
+	figura = 'trojkat'
 	print('Co chcesz obliczyc?')
 	print('1. Pole')
 	print('2. Obwod')
@@ -142,31 +121,17 @@ def trojkat():
 			#Pole
 			tr_a = input('Podaj dlugosc podstawy: ')
 			tr_h = input('Podaj wysokosc trojkata: ')
-			print('')
-
-			try:
-				tr_a = float(tr_a)
-				tr_h = float(tr_h)
-			except ValueError:
-				print('[!] Blad. Dlugosc podstawy i wyskokosc trojkata musi byc liczba')
-				exit()
+			handler(figura,tr_a,tr_h,False)
 			tr_pole = (tr_a * tr_h)/2
 			print('Pole tego trojkata wynosi: ' + str(tr_pole))
 		
 		if wyborTrojkat == '2':
 			#Obwod
+			figura = 'trojkat3'
 			tr_a = input('Podaj dlugosc boku "a": ')
 			tr_b = input('Podaj dlugosc boku "b": ')
 			tr_c = input('Podaj dlugosc boku "c": ')
-			print('')
-
-			try:
-				tr_a = float(tr_a)
-				tr_b = float(tr_b)
-				tr_c = float(tr_c)
-			except ValueError:
-				print('[!] Blad. Wartosci "a","b" i "c" musza byc liczbami')
-				exit()
+			handler(figura,tr_a,tr_b,tr_c)
 			tr_obwod = tr_a + tr_b + tr_c
 			print('Obwod tego trojkata wynosi: ' + str(tr_obwod))
 			
@@ -174,17 +139,10 @@ def trojkat():
 			#Pitagoras przeciwprostokatnej
 			tr_a = input('Podaj dlugosc przyprostokatnej "a": ')
 			tr_b = input('Podaj dlugosc przyprostokatnej "b": ')
-			print('')
-			
-			try:
-				tr_a = float(tr_a)
-				tr_b = float(tr_b)
-			except ValueError:
-				print('[!] Blad. Dlugosci przyprostokatnych musza byc liczbami')
-				exit()
-			
+			handler(figura,tr_a,tr_b,False)
 			tr_c = tr_a ** 2 + tr_b ** 2
-			print('Dlugosc przeciwprostokatnej tego trojkata wynosi: ' + str(tr_c))
+			print('Dlugosc przeciwprostokatnej tego trojkata wynosi: √' + str(tr_c))
+			print('Czyli dokladnie: ' + str(math.sqrt(tr_c)))
 			
 if wybor == '1':
 	kwadrat()
