@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Coded by KBJay
 import math
 print('Wybierz figure:')
@@ -5,14 +6,16 @@ print('1. Kwadrat')
 print('2. Prostokat')
 print('3. Trojkat')
 print('4. Romb')
+print('5. Trapez')
 print('')
 wybor = input('[1-4] Wybieram: ')
 
-listWyborow = ['1','2','3','4']
+listWyborow = ['1','2','3','4','5']
 listKwadrat = ['1','2','3']
 listProstokat = ['1','2','3']
 listTrojkat = ['1','2','3']
 listRomb = ['1','2']
+listTrapez = ['1','2']
 if wybor not in listWyborow:
   print('[!] Blad. Podano wybor z poza dozwolonego zakresu')
 
@@ -187,7 +190,25 @@ def romb():
 			handler(figura,r_a,False,False)
 			r_obwod = float(r_a) * 4
 			print('Obwod tego rombu wynosi: ' + str(r_obwod))
-				
+def trapez():
+	print('Co chcesz policzyc?')
+	print('1. Pole')
+	print('2. Obwod')
+	wyborTrapez = input('Wybieram: ')
+	if wyborTrapez not in listTrapez:
+		print('[!] Blad. Podano wybor z poza dozwolonego zakresu')
+	elif wyborTrapez in listTrapez:
+		
+		if wyborTrapez == '1':
+			#Pole
+			figura = 'trapez'
+			trap_a = input('Podaj dlugosc podstawy: ')
+			trap_b = input('Podaj dlugosc drugiej podstawy: ')
+			trap_h = input('Podaj wysokosc: ')
+			handler(figura,trap_a,trap_b,trap_h)
+			poleTrapezu = (float(trap_a) + float(trap_b)) / 2 * float(trap_h)
+			print('Pole tego trapezu wynosi: ' + str(poleTrapezu))
+						
 if wybor == '1':
 	kwadrat()
 elif wybor == '2':
@@ -196,3 +217,5 @@ elif wybor == '3':
 	trojkat()
 elif wybor == '4':
 	romb()
+elif wybor == '5':
+	trapez()
